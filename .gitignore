@@ -1,0 +1,3 @@
+/MathLib/obj/*.cache
+*.cache
+/MathLib/obj/Debug/netstandard2.0/*.cache
