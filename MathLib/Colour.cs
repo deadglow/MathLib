@@ -22,6 +22,10 @@ namespace MathLib
 		{
 			Value = (Value & 0x00FFFFFF) | (uint)(red << 24);
 		}
+		public void SetRed(float val)
+		{
+			SetRed((byte)(uint)Math.Floor(255 * val));
+		}
 
 		public byte GetGreen()
 		{
@@ -31,6 +35,10 @@ namespace MathLib
 		public void SetGreen(byte green)
 		{
 			Value = (Value & 0xFF00FFFF) | (uint)(green << 16);
+		}
+		public void SetGreen(float val)
+		{
+			SetGreen((byte)(uint)Math.Floor(255 * val));
 		}
 
 		public byte GetBlue()
@@ -42,6 +50,11 @@ namespace MathLib
 		{
 			Value = (Value & 0xFFFF00FF) | (uint)(blue << 8);
 		}
+		public void SetBlue(float val)
+		{
+			SetBlue((byte)(uint)Math.Floor(255 * val));
+		}
+
 
 		public byte GetAlpha()
 		{
@@ -52,6 +65,11 @@ namespace MathLib
 		{
 			Value = (Value & 0xFFFFFF00) | alpha;
 		}
+		public void SetAlpha(float val)
+		{
+			SetAlpha((byte)(uint)Math.Floor(255f * val));
+		}
+
 
 
 	}
