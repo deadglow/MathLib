@@ -3,3 +3,5 @@
 /MathLib/obj/Debug/netstandard2.0/*.cache
 
 .vs/MathLib/DesignTimeBuild/.dtbcache
+
+.vs/MathLib/v16/.suo
