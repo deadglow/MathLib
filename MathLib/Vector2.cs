@@ -41,7 +41,7 @@ namespace MathLib
 		//Static methods
 		public static float Dot(Vector2 a, Vector2 b)
 		{
-			return a.x * b.x + a.y + b.y;
+			return a.x * b.x + a.y * b.y;
 		}
 
 		public static Vector2 RightAngle(Vector2 a)
