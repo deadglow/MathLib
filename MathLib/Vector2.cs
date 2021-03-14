@@ -34,6 +34,10 @@ namespace MathLib
 		{
 			return new Vector2(a.x / scalar, a.y / scalar);
 		}
+		public static Vector3 operator -(Vector2 a)
+		{
+			return new Vector2(-a.x, -a.y);
+		}
 
 		//Conversion overload
 		public static implicit operator Vector3(Vector2 vec) { return new Vector3(vec.x, vec.y, 0.0f); }

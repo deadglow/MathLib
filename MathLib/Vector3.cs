@@ -7,6 +7,43 @@ namespace MathLib
 		public float x;
 		public float y;
 		public float z;
+		#region Statics
+		public static Vector3 Zero
+		{
+			get
+			{
+				return new Vector3(0f, 0f, 0f);
+			}
+		}
+		public static Vector3 One
+		{
+			get
+			{
+				return new Vector3(1f, 1f, 1f);
+			}
+		}
+		public static Vector3 Forward
+		{
+			get
+			{
+				return new Vector3(0f, 0f, 1f);
+			}
+		}
+		public static Vector3 Right
+		{
+			get
+			{
+				return new Vector3(1f, 0f, 0f);
+			}
+		}
+		public static Vector3 Up
+		{
+			get
+			{
+				return new Vector3(0f, 1f, 0f);
+			}
+		}
+		#endregion
 
 		public Vector3 (float x, float y, float z)
 		{
@@ -34,6 +71,10 @@ namespace MathLib
 		public static Vector3 operator /(Vector3 a, float scalar)
 		{
 			return new Vector3(a.x / scalar, a.y / scalar, a.z / scalar);
+		}
+		public static Vector3 operator -(Vector3 a)
+		{
+			return new Vector3(-a.x, -a.y, -a.z);
 		}
 
 		//Conversion overload
