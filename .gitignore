@@ -5,3 +5,17 @@
 .vs/MathLib/DesignTimeBuild/.dtbcache
 
 .vs/MathLib/v16/.suo
+
+.vs/MathLib/v16/Server/sqlite3/storage.ide
+
+.vs/MathLib/v16/Server/sqlite3/storage.ide-shm
+
+.vs/MathLib/v16/Server/sqlite3/storage.ide-wal
+
+MathLib/obj/MathLib.csproj.nuget.dgspec.json
+
+MathLib/obj/MathLib.csproj.nuget.g.props
+
+MathLib/obj/MathLib.csproj.nuget.g.targets
+
+MathLib/obj/project.assets.json
