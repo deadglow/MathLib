@@ -4,12 +4,26 @@ using System.Text;
 
 namespace MathLib
 {
-	class Matrix4
+	struct Matrix4
 	{
-		public float[] m = new float[16];
+		public static Matrix4 Identity
+		{
+			get
+			{
+				return new Matrix4();
+			}
+		}
+
+		private float[] m;
+
+		public Matrix4(bool isDefault = true)
+		{
+			m = new Matrix4(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1).m;
+		}
 
 		public Matrix4(float m0, float m1, float m2, float m3, float m4, float m5, float m6, float m7, float m8, float m9, float m10, float m11, float m12, float m13, float m14, float m15)
 		{
+			m = new float[16];
 			m[0] = m0;
 			m[1] = m1;
 			m[2] = m2;
@@ -27,7 +41,6 @@ namespace MathLib
 			m[14] = m14;
 			m[15] = m15;
 		}
-		public Matrix4() : this(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0) { }
 
 		public float this[int i]
 		{
@@ -81,17 +94,37 @@ namespace MathLib
 								mat[3] * vec.w + mat[7] * vec.w + mat[11] * vec.w + mat[15] * vec.w);
 		}
 
-		public void SetRotateX(float radians)
+		//Sets this matrix to a scaled matrix
+		public static Matrix4 ScaleMatrix(Vector3 v)
 		{
-			m[4] = (float)Math.Cos(radians);
-			m[5] = (float)-Math.Sin(radians);
-			m[7] = (float)Math.Sin(radians);
-			m[8] = (float)Math.Cos(radians);
+			return new Matrix4(v.x, 0, 0, 0, v.y, 0, 0, 0, v.z, 0, 0, 0, 0, 0, 0, 0);
 		}
 
-		public void SetRotate(float radians)
+		public void SetRotateX(float radians)
 		{
+			m[0] = 1;
+			m[5] = (float)Math.Cos(radians);
+			m[6] = (float)-Math.Sin(radians);
+			m[9] = (float)Math.Sin(radians);
+			m[10] = (float)Math.Cos(radians);
+		}
 
+		public void SetRotateY(float radians)
+		{
+			m[0] = (float)Math.Cos(radians);
+			m[2] = (float)Math.Sin(radians);
+			m[5] = 1;
+			m[8] = (float)-Math.Sin(radians);
+			m[10] = (float)Math.Cos(radians);
+		}
+
+		public void SetRotateZ(float radians)
+		{
+			m[0] = (float)Math.Cos(radians);
+			m[1] = (float)-Math.Sin(radians);
+			m[4] = (float)Math.Sin(radians);
+			m[5] = (float)Math.Cos(radians);
+			m[10] = 1;
 		}
 	}
 }

@@ -4,18 +4,18 @@ using System.Text;
 
 namespace MathLib
 {
-	class Matrix2
+	struct Matrix2
 	{
-		public float[] m = new float[4];
+		public float[] m;
 
 		public Matrix2(float m0, float m1, float m2, float m3)
 		{
+			m = new float[4];
 			m[0] = m0;
 			m[1] = m1;
 			m[2] = m2;
 			m[3] = m3;
 		}
-		public Matrix2() : this(0, 0, 0, 0) { }
 
 		public float this[int i]
 		{

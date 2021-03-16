@@ -4,12 +4,13 @@ using System.Text;
 
 namespace MathLib
 {
-	class Matrix3
+	struct Matrix3
 	{
-		public float[] m = new float[9];
+		public float[] m;
 
 		public Matrix3(float m0, float m1, float m2, float m3, float m4, float m5, float m6, float m7, float m8)
 		{
+			m = new float[9];
 			m[0] = m0;
 			m[1] = m1;
 			m[2] = m2;
@@ -20,7 +21,6 @@ namespace MathLib
 			m[7] = m7;
 			m[8] = m8;
 		}
-		public Matrix3() : this(0, 0, 0, 0, 0, 0, 0, 0, 0) { }
 
 		public float this[int i]
 		{
@@ -65,5 +65,13 @@ namespace MathLib
 								mat[2] * vec.x + mat[5] * vec.y + mat[8] * vec.z);
 		}
 
+		public void SetRotate(float radians)
+		{
+			m[0] = (float)Math.Cos(radians);
+			m[1] = (float)-Math.Sin(radians);
+			m[3] = (float)Math.Sin(radians);
+			m[4] = (float)Math.Cos(radians);
+			m[8] = 1;
+		}
 	}
 }
