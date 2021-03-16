@@ -4,10 +4,7 @@ namespace MathLib
 {
 	public struct Vector4
 	{
-		public float x;
-		public float y;
-		public float z;
-		public float w;
+		public float x, y, z, w;
 
 		public Vector4 (float x, float y, float z, float w)
 		{
@@ -43,7 +40,7 @@ namespace MathLib
 			return (float)Math.Sqrt(a.x * a.x + a.y * a.y + a.z * a.z + a.w * a.w);
 		}
 
-		public static Vector4 Normalised(Vector4 a)
+		public static Vector4 Normalise(Vector4 a)
 		{
 			return a / Magnitude(a);
 		}
@@ -67,9 +64,13 @@ namespace MathLib
 			return Magnitude(this);
 		}
 
-		public Vector4 Normalised()
+		public void Normalise()
 		{
-			return Normalised(this);
+			Vector4 v = Normalise(this);
+			x = v.x;
+			y = v.y;
+			z = v.z;
+			w = v.w;
 		}
 
 		public float Dot(Vector4 other)

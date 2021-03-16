@@ -4,9 +4,11 @@ using System.Text;
 
 namespace MathLib
 {
-	struct Matrix3
+	public class Matrix3
 	{
 		public float[] m;
+
+		public Matrix3() : this(1, 0, 0, 0, 1, 0, 0, 0, 1) { }
 
 		public Matrix3(float m0, float m1, float m2, float m3, float m4, float m5, float m6, float m7, float m8)
 		{
@@ -65,7 +67,25 @@ namespace MathLib
 								mat[2] * vec.x + mat[5] * vec.y + mat[8] * vec.z);
 		}
 
-		public void SetRotate(float radians)
+		public void SetRotateX(float radians)
+		{
+			m[0] = 1;
+			m[4] = (float)Math.Cos(radians);
+			m[5] = (float)-Math.Sin(radians);
+			m[7] = (float)Math.Sin(radians);
+			m[8] = (float)Math.Cos(radians);
+		}
+
+		public void SetRotateY(float radians)
+		{
+			m[0] = (float)Math.Cos(radians);
+			m[2] = (float)Math.Sin(radians);
+			m[4] = 1;
+			m[6] = (float)-Math.Sin(radians);
+			m[8] = (float)Math.Cos(radians);
+		}
+
+		public void SetRotateZ(float radians)
 		{
 			m[0] = (float)Math.Cos(radians);
 			m[1] = (float)-Math.Sin(radians);

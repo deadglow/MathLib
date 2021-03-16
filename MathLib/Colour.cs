@@ -4,23 +4,23 @@ using System.Text;
 
 namespace MathLib
 {
-	struct Colour
+	public struct Colour
 	{
-		public uint Value { get; private set; }
+		public uint colour { get; private set; }
 
 		public Colour(byte red, byte green, byte blue, byte alpha)
 		{
-			Value = (uint)((red << 24) | (green << 16) | (blue << 8) | alpha);
+			colour = (uint)((red << 24) | (green << 16) | (blue << 8) | alpha);
 		}
 
 		public byte GetRed()
 		{
-			return (byte)(Value >> 24);
+			return (byte)(colour >> 24);
 		}
 
 		public void SetRed(byte red)
 		{
-			Value = (Value & 0x00FFFFFF) | (uint)(red << 24);
+			colour = (colour & 0x00FFFFFF) | (uint)(red << 24);
 		}
 		public void SetRed(float val)
 		{
@@ -29,12 +29,12 @@ namespace MathLib
 
 		public byte GetGreen()
 		{
-			return (byte)(Value >> 16);
+			return (byte)(colour >> 16);
 		}
 
 		public void SetGreen(byte green)
 		{
-			Value = (Value & 0xFF00FFFF) | (uint)(green << 16);
+			colour = (colour & 0xFF00FFFF) | (uint)(green << 16);
 		}
 		public void SetGreen(float val)
 		{
@@ -43,12 +43,12 @@ namespace MathLib
 
 		public byte GetBlue()
 		{
-			return (byte)(Value >> 8);
+			return (byte)(colour >> 8);
 		}
 
 		public void SetBlue(byte blue)
 		{
-			Value = (Value & 0xFFFF00FF) | (uint)(blue << 8);
+			colour = (colour & 0xFFFF00FF) | (uint)(blue << 8);
 		}
 		public void SetBlue(float val)
 		{
@@ -58,12 +58,12 @@ namespace MathLib
 
 		public byte GetAlpha()
 		{
-			return (byte)Value;
+			return (byte)colour;
 		}
 
 		public void SetAlpha(byte alpha)
 		{
-			Value = (Value & 0xFFFFFF00) | alpha;
+			colour = (colour & 0xFFFFFF00) | alpha;
 		}
 		public void SetAlpha(float val)
 		{

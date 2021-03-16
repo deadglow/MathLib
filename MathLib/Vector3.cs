@@ -4,9 +4,7 @@ namespace MathLib
 {
 	public struct Vector3
 	{
-		public float x;
-		public float y;
-		public float z;
+		public float x, y, z;
 		#region Statics
 		public static Vector3 Zero
 		{
@@ -85,9 +83,9 @@ namespace MathLib
 			return (float)Math.Sqrt(a.x * a.x + a.y * a.y + a.z * a.z);
 		}
 
-		public static Vector3 Normalised(Vector3 a)
+		public static Vector3 Normalise(Vector3 a)
 		{
-			return a / Magnitude(a);
+			return (a / Magnitude(a));
 		}
 
 		public static float Dot(Vector3 a, Vector3 b)
@@ -108,9 +106,12 @@ namespace MathLib
 			return Magnitude(this);
 		}
 
-		public Vector3 Normalised()
+		public void Normalise()
 		{
-			return this / Magnitude();
+			Vector3 vec = Normalise(this);
+			x = vec.x;
+			y = vec.y;
+			z = vec.z;
 		}
 
 		public float Dot(Vector3 other)

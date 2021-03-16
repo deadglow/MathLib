@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MathLib
 {
-	struct Matrix2
+	public struct Matrix2
 	{
 		public float[] m;
 

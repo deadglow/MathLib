@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MathLib
 {
-	struct Matrix4
+	public class Matrix4
 	{
 		public static Matrix4 Identity
 		{
@@ -14,12 +14,9 @@ namespace MathLib
 			}
 		}
 
-		private float[] m;
+		public float[] m;
 
-		public Matrix4(bool isDefault = true)
-		{
-			m = new Matrix4(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1).m;
-		}
+		public Matrix4() : this(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1) { }
 
 		public Matrix4(float m0, float m1, float m2, float m3, float m4, float m5, float m6, float m7, float m8, float m9, float m10, float m11, float m12, float m13, float m14, float m15)
 		{
@@ -94,7 +91,6 @@ namespace MathLib
 								mat[3] * vec.w + mat[7] * vec.w + mat[11] * vec.w + mat[15] * vec.w);
 		}
 
-		//Sets this matrix to a scaled matrix
 		public static Matrix4 ScaleMatrix(Vector3 v)
 		{
 			return new Matrix4(v.x, 0, 0, 0, v.y, 0, 0, 0, v.z, 0, 0, 0, 0, 0, 0, 0);
