@@ -68,25 +68,25 @@ namespace MathLib
 		{
 			m0 = 1;
 			m4 = (float)Math.Cos(radians);
-			m5 = (float)-Math.Sin(radians);
-			m7 = (float)Math.Sin(radians);
+			m5 = (float)Math.Sin(radians);
+			m7 = (float)-Math.Sin(radians);
 			m8 = (float)Math.Cos(radians);
 		}
 
 		public void SetRotateY(float radians)
 		{
 			m0 = (float)Math.Cos(radians);
-			m2 = (float)Math.Sin(radians);
+			m2 = (float)-Math.Sin(radians);
 			m4 = 1;
-			m6 = (float)-Math.Sin(radians);
+			m6 = (float)Math.Sin(radians);
 			m8 = (float)Math.Cos(radians);
 		}
 
 		public void SetRotateZ(float radians)
 		{
 			m0 = (float)Math.Cos(radians);
-			m1 = (float)-Math.Sin(radians);
-			m3 = (float)Math.Sin(radians);
+			m1 = (float)Math.Sin(radians);
+			m3 = (float)-Math.Sin(radians);
 			m4 = (float)Math.Cos(radians);
 			m8 = 1;
 		}
