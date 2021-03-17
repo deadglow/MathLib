@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MathLib
 {
-	public class Matrix4
+	public struct Matrix4
 	{
 		public static Matrix4 Identity
 		{
@@ -14,41 +14,43 @@ namespace MathLib
 			}
 		}
 
-		public float[] m;
+		public float m0;
+		public float m1;
+		public float m2;
+		public float m3;
+		public float m4;
+		public float m5;
+		public float m6;
+		public float m7;
+		public float m8;
+		public float m9;
+		public float m10;
+		public float m11;
+		public float m12;
+		public float m13;
+		public float m14;
+		public float m15;
 
-		public Matrix4() : this(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1) { }
+		public Matrix4(bool isDefault = true) : this(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1) { }
 
 		public Matrix4(float m0, float m1, float m2, float m3, float m4, float m5, float m6, float m7, float m8, float m9, float m10, float m11, float m12, float m13, float m14, float m15)
 		{
-			m = new float[16];
-			m[0] = m0;
-			m[1] = m1;
-			m[2] = m2;
-			m[3] = m3;
-			m[4] = m4;
-			m[5] = m5;
-			m[6] = m6;
-			m[7] = m7;
-			m[8] = m8;
-			m[9] = m9;
-			m[10] = m10;
-			m[11] = m11;
-			m[12] = m12;
-			m[13] = m13;
-			m[14] = m14;
-			m[15] = m15;
-		}
-
-		public float this[int i]
-		{
-			get
-			{
-				return m[i];
-			}
-			set
-			{
-				m[i] = value;
-			}
+			this.m0 = m0;
+			this.m1 = m1;
+			this.m2 = m2;
+			this.m3 = m3;
+			this.m4 = m4;
+			this.m5 = m5;
+			this.m6 = m6;
+			this.m7 = m7;
+			this.m8 = m8;
+			this.m9 = m9;
+			this.m10 = m10;
+			this.m11 = m11;
+			this.m12 = m12;
+			this.m13 = m13;
+			this.m14 = m14;
+			this.m15 = m15;
 		}
 
 		public static Matrix4 operator *(Matrix4 a, Matrix4 b)
@@ -64,31 +66,31 @@ namespace MathLib
 			//	|_______|_______|_______|_______|
 
 			return new Matrix4(
-				a[0] * b[0]  + a[4] * b[1]  + a[8]  * b[2]  + a[12] * b[3],
-				a[1] * b[0]  + a[5] * b[1]  + a[9]  * b[2]  + a[13] * b[3],
-				a[2] * b[0]  + a[6] * b[1]  + a[10] * b[2]  + a[14] * b[3],
-				a[3] * b[0]  + a[7] * b[1]  + a[11] * b[2]  + a[15] * b[3],
-				a[0] * b[4]  + a[4] * b[5]  + a[8]  * b[6]  + a[12] * b[7],
-				a[1] * b[4]  + a[5] * b[5]  + a[9]  * b[6]  + a[13] * b[7],
-				a[2] * b[4]  + a[6] * b[5]  + a[10] * b[6]  + a[14] * b[7],
-				a[3] * b[4]  + a[7] * b[5]  + a[11] * b[6]  + a[15] * b[7],
-				a[0] * b[8]  + a[4] * b[9]  + a[8]  * b[10] + a[12] * b[11],
-				a[1] * b[8]  + a[5] * b[9]  + a[9]  * b[10] + a[13] * b[11],
-				a[2] * b[8]  + a[6] * b[9]  + a[10] * b[10] + a[14] * b[11],
-				a[3] * b[8]  + a[7] * b[9]  + a[11] * b[10] + a[15] * b[11],
-				a[0] * b[12] + a[4] * b[13] + a[8]  * b[14] + a[12] * b[15],
-				a[1] * b[12] + a[5] * b[13] + a[9]  * b[14] + a[13] * b[15],
-				a[2] * b[12] + a[6] * b[13] + a[10] * b[14] + a[14] * b[15],
-				a[3] * b[12] + a[7] * b[13] + a[11] * b[14] + a[15] * b[15]
+				a.m0 * b.m0  + a.m4 * b.m1  + a.m8  * b.m2  + a.m12 * b.m3,
+				a.m1 * b.m0  + a.m5 * b.m1  + a.m9  * b.m2  + a.m13 * b.m3,
+				a.m2 * b.m0  + a.m6 * b.m1  + a.m10 * b.m2  + a.m14 * b.m3,
+				a.m3 * b.m0  + a.m7 * b.m1  + a.m11 * b.m2  + a.m15 * b.m3,
+				a.m0 * b.m4  + a.m4 * b.m5  + a.m8  * b.m6  + a.m12 * b.m7,
+				a.m1 * b.m4  + a.m5 * b.m5  + a.m9  * b.m6  + a.m13 * b.m7,
+				a.m2 * b.m4  + a.m6 * b.m5  + a.m10 * b.m6  + a.m14 * b.m7,
+				a.m3 * b.m4  + a.m7 * b.m5  + a.m11 * b.m6  + a.m15 * b.m7,
+				a.m0 * b.m8  + a.m4 * b.m9  + a.m8  * b.m10 + a.m12 * b.m11,
+				a.m1 * b.m8  + a.m5 * b.m9  + a.m9  * b.m10 + a.m13 * b.m11,
+				a.m2 * b.m8  + a.m6 * b.m9  + a.m10 * b.m10 + a.m14 * b.m11,
+				a.m3 * b.m8  + a.m7 * b.m9  + a.m11 * b.m10 + a.m15 * b.m11,
+				a.m0 * b.m12 + a.m4 * b.m13 + a.m8  * b.m14 + a.m12 * b.m15,
+				a.m1 * b.m12 + a.m5 * b.m13 + a.m9  * b.m14 + a.m13 * b.m15,
+				a.m2 * b.m12 + a.m6 * b.m13 + a.m10 * b.m14 + a.m14 * b.m15,
+				a.m3 * b.m12 + a.m7 * b.m13 + a.m11 * b.m14 + a.m15 * b.m15
 				);
 		}
 
 		public static Vector4 operator *(Matrix4 mat, Vector4 vec)
 		{
-			return new Vector4(	mat[0] * vec.x + mat[4] * vec.y + mat[8]  * vec.z + mat[12] * vec.w,
-								mat[1] * vec.x + mat[5] * vec.y + mat[9]  * vec.z + mat[13] * vec.w,
-								mat[2] * vec.x + mat[6] * vec.y + mat[10] * vec.z + mat[14] * vec.w,
-								mat[3] * vec.w + mat[7] * vec.w + mat[11] * vec.w + mat[15] * vec.w);
+			return new Vector4(	mat.m0 * vec.x + mat.m4 * vec.y + mat.m8  * vec.z + mat.m12 * vec.w,
+								mat.m1 * vec.x + mat.m5 * vec.y + mat.m9  * vec.z + mat.m13 * vec.w,
+								mat.m2 * vec.x + mat.m6 * vec.y + mat.m10 * vec.z + mat.m14 * vec.w,
+								mat.m3 * vec.w + mat.m7 * vec.w + mat.m11 * vec.w + mat.m15 * vec.w);
 		}
 
 		public static Matrix4 ScaleMatrix(Vector3 v)
@@ -98,29 +100,29 @@ namespace MathLib
 
 		public void SetRotateX(float radians)
 		{
-			m[0] = 1;
-			m[5] = (float)Math.Cos(radians);
-			m[6] = (float)-Math.Sin(radians);
-			m[9] = (float)Math.Sin(radians);
-			m[10] = (float)Math.Cos(radians);
+			m0 = 1;
+			m5 = (float)Math.Cos(radians);
+			m6 = (float)-Math.Sin(radians);
+			m9 = (float)Math.Sin(radians);
+			m10 = (float)Math.Cos(radians);
 		}
 
 		public void SetRotateY(float radians)
 		{
-			m[0] = (float)Math.Cos(radians);
-			m[2] = (float)Math.Sin(radians);
-			m[5] = 1;
-			m[8] = (float)-Math.Sin(radians);
-			m[10] = (float)Math.Cos(radians);
+			m0 = (float)Math.Cos(radians);
+			m2 = (float)Math.Sin(radians);
+			m5 = 1;
+			m8 = (float)-Math.Sin(radians);
+			m10 = (float)Math.Cos(radians);
 		}
 
 		public void SetRotateZ(float radians)
 		{
-			m[0] = (float)Math.Cos(radians);
-			m[1] = (float)-Math.Sin(radians);
-			m[4] = (float)Math.Sin(radians);
-			m[5] = (float)Math.Cos(radians);
-			m[10] = 1;
+			m0 = (float)Math.Cos(radians);
+			m1 = (float)-Math.Sin(radians);
+			m4 = (float)Math.Sin(radians);
+			m5 = (float)Math.Cos(radians);
+			m10 = 1;
 		}
 	}
 }

@@ -4,36 +4,31 @@ using System.Text;
 
 namespace MathLib
 {
-	public class Matrix3
+	public struct Matrix3
 	{
-		public float[] m;
+		public float m0;
+		public float m1;
+		public float m2;
+		public float m3;
+		public float m4;
+		public float m5;
+		public float m6;
+		public float m7;
+		public float m8;
 
-		public Matrix3() : this(1, 0, 0, 0, 1, 0, 0, 0, 1) { }
+		public Matrix3(bool isDefault = true) : this(1, 0, 0, 0, 1, 0, 0, 0, 1) { }
 
 		public Matrix3(float m0, float m1, float m2, float m3, float m4, float m5, float m6, float m7, float m8)
 		{
-			m = new float[9];
-			m[0] = m0;
-			m[1] = m1;
-			m[2] = m2;
-			m[3] = m3;
-			m[4] = m4;
-			m[5] = m5;
-			m[6] = m6;
-			m[7] = m7;
-			m[8] = m8;
-		}
-
-		public float this[int i]
-		{
-			get
-			{
-				return m[i];
-			}
-			set
-			{
-				m[i] = value;
-			}
+			this.m0 = m0;
+			this.m1 = m1;
+			this.m2 = m2;
+			this.m3 = m3;
+			this.m4 = m4;
+			this.m5 = m5;
+			this.m6 = m6;
+			this.m7 = m7;
+			this.m8 = m8;
 		}
 
 		public static Matrix3 operator *(Matrix3 a, Matrix3 b)
@@ -46,52 +41,54 @@ namespace MathLib
 			//	|	2	|	5	|	8	|
 			//	|_______|_______|_______|
 
-			Matrix3 mat = new Matrix3();
-			mat[0] = a[0] * b[0] + a[3] * b[1] + a[6] * b[2];
-			mat[3] = a[0] * b[3] + a[3] * b[4] + a[6] * b[5];
-			mat[6] = a[0] * b[6] + a[3] * b[7] + a[6] * b[8];
-			mat[1] = a[1] * b[0] + a[4] * b[1] + a[7] * b[2];
-			mat[4] = a[1] * b[3] + a[4] * b[4] + a[7] * b[5];
-			mat[7] = a[1] * b[6] + a[4] * b[7] + a[7] * b[8];
-			mat[2] = a[2] * b[0] + a[5] * b[1] + a[8] * b[2];
-			mat[5] = a[2] * b[3] + a[5] * b[4] + a[8] * b[5];
-			mat[8] = a[2] * b[6] + a[5] * b[7] + a[8] * b[8];
+			Matrix3 mat = new Matrix3
+			{
+				m0 = a.m0 * b.m0 + a.m3 * b.m1 + a.m6 * b.m2,
+				m3 = a.m0 * b.m3 + a.m3 * b.m4 + a.m6 * b.m5,
+				m6 = a.m0 * b.m6 + a.m3 * b.m7 + a.m6 * b.m8,
+				m1 = a.m1 * b.m0 + a.m4 * b.m1 + a.m7 * b.m2,
+				m4 = a.m1 * b.m3 + a.m4 * b.m4 + a.m7 * b.m5,
+				m7 = a.m1 * b.m6 + a.m4 * b.m7 + a.m7 * b.m8,
+				m2 = a.m2 * b.m0 + a.m5 * b.m1 + a.m8 * b.m2,
+				m5 = a.m2 * b.m3 + a.m5 * b.m4 + a.m8 * b.m5,
+				m8 = a.m2 * b.m6 + a.m5 * b.m7 + a.m8 * b.m8
+			};
 
 			return mat;
 		}
 
 		public static Vector3 operator *(Matrix3 mat, Vector3 vec)
 		{
-			return new Vector3(	mat[0] * vec.x + mat[3] * vec.y + mat[6] * vec.z,
-								mat[1] * vec.x + mat[4] * vec.y + mat[7] * vec.z,
-								mat[2] * vec.x + mat[5] * vec.y + mat[8] * vec.z);
+			return new Vector3(	mat.m0 * vec.x + mat.m3 * vec.y + mat.m6 * vec.z,
+								mat.m1 * vec.x + mat.m4 * vec.y + mat.m7 * vec.z,
+								mat.m2 * vec.x + mat.m5 * vec.y + mat.m8 * vec.z);
 		}
 
 		public void SetRotateX(float radians)
 		{
-			m[0] = 1;
-			m[4] = (float)Math.Cos(radians);
-			m[5] = (float)-Math.Sin(radians);
-			m[7] = (float)Math.Sin(radians);
-			m[8] = (float)Math.Cos(radians);
+			m0 = 1;
+			m4 = (float)Math.Cos(radians);
+			m5 = (float)-Math.Sin(radians);
+			m7 = (float)Math.Sin(radians);
+			m8 = (float)Math.Cos(radians);
 		}
 
 		public void SetRotateY(float radians)
 		{
-			m[0] = (float)Math.Cos(radians);
-			m[2] = (float)Math.Sin(radians);
-			m[4] = 1;
-			m[6] = (float)-Math.Sin(radians);
-			m[8] = (float)Math.Cos(radians);
+			m0 = (float)Math.Cos(radians);
+			m2 = (float)Math.Sin(radians);
+			m4 = 1;
+			m6 = (float)-Math.Sin(radians);
+			m8 = (float)Math.Cos(radians);
 		}
 
 		public void SetRotateZ(float radians)
 		{
-			m[0] = (float)Math.Cos(radians);
-			m[1] = (float)-Math.Sin(radians);
-			m[3] = (float)Math.Sin(radians);
-			m[4] = (float)Math.Cos(radians);
-			m[8] = 1;
+			m0 = (float)Math.Cos(radians);
+			m1 = (float)-Math.Sin(radians);
+			m3 = (float)Math.Sin(radians);
+			m4 = (float)Math.Cos(radians);
+			m8 = 1;
 		}
 	}
 }
