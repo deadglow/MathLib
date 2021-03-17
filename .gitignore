@@ -21,3 +21,4 @@ MathLib/obj/MathLib.csproj.nuget.g.targets
 MathLib/obj/project.assets.json
 
 .vs/MathLib/DesignTimeBuild/
+.vs
