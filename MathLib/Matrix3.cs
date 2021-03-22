@@ -6,6 +6,14 @@ namespace MathLib
 {
 	public struct Matrix3
 	{
+		public static Matrix3 Identity
+		{
+			get
+			{
+				return new Matrix3(1, 0, 0, 0, 1, 0, 0, 0, 1);
+			}
+		}
+
 		public float m0;
 		public float m1;
 		public float m2;
@@ -66,28 +74,34 @@ namespace MathLib
 
 		public void SetRotateX(float radians)
 		{
+			float sin = (float)Math.Sin(radians);
+			float cos = (float)Math.Cos(radians);
 			m0 = 1;
-			m4 = (float)Math.Cos(radians);
-			m5 = (float)Math.Sin(radians);
-			m7 = (float)-Math.Sin(radians);
-			m8 = (float)Math.Cos(radians);
+			m4 = cos;
+			m5 = sin;
+			m7 = -sin;
+			m8 = cos;
 		}
 
 		public void SetRotateY(float radians)
 		{
-			m0 = (float)Math.Cos(radians);
-			m2 = (float)-Math.Sin(radians);
+			float sin = (float)Math.Sin(radians);
+			float cos = (float)Math.Cos(radians);
+			m0 = cos;
+			m2 = -sin;
 			m4 = 1;
-			m6 = (float)Math.Sin(radians);
-			m8 = (float)Math.Cos(radians);
+			m6 = sin;
+			m8 = cos;
 		}
 
 		public void SetRotateZ(float radians)
 		{
-			m0 = (float)Math.Cos(radians);
-			m1 = (float)Math.Sin(radians);
-			m3 = (float)-Math.Sin(radians);
-			m4 = (float)Math.Cos(radians);
+			float sin = (float)Math.Sin(radians);
+			float cos = (float)Math.Cos(radians);
+			m0 = cos;
+			m1 = sin;
+			m3 = -sin;
+			m4 = cos;
 			m8 = 1;
 		}
 	}

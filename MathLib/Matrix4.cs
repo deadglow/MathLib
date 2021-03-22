@@ -10,7 +10,9 @@ namespace MathLib
 		{
 			get
 			{
-				return new Matrix4();
+				Matrix4 mat = new Matrix4();
+				mat.SetIdentity();
+				return mat;
 			}
 		}
 
@@ -30,8 +32,6 @@ namespace MathLib
 		public float m13;
 		public float m14;
 		public float m15;
-
-		public Matrix4(bool isDefault = true) : this(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1) { }
 
 		public Matrix4(float m0, float m1, float m2, float m3, float m4, float m5, float m6, float m7, float m8, float m9, float m10, float m11, float m12, float m13, float m14, float m15)
 		{
@@ -81,8 +81,7 @@ namespace MathLib
 				a.m0 * b.m12 + a.m4 * b.m13 + a.m8  * b.m14 + a.m12 * b.m15,
 				a.m1 * b.m12 + a.m5 * b.m13 + a.m9  * b.m14 + a.m13 * b.m15,
 				a.m2 * b.m12 + a.m6 * b.m13 + a.m10 * b.m14 + a.m14 * b.m15,
-				a.m3 * b.m12 + a.m7 * b.m13 + a.m11 * b.m14 + a.m15 * b.m15
-				);
+				a.m3 * b.m12 + a.m7 * b.m13 + a.m11 * b.m14 + a.m15 * b.m15 );
 		}
 
 		public static Vector4 operator *(Matrix4 mat, Vector4 vec)
@@ -93,36 +92,50 @@ namespace MathLib
 								mat.m3 * vec.w + mat.m7 * vec.w + mat.m11 * vec.w + mat.m15 * vec.w);
 		}
 
-		public static Matrix4 ScaleMatrix(Vector3 v)
-		{
-			return new Matrix4(v.x, 0, 0, 0, v.y, 0, 0, 0, v.z, 0, 0, 0, 0, 0, 0, 0);
-		}
+		//public static Matrix4 ScaleMatrix(Vector3 v)
+		//{
+		//	return new Matrix4(v.x, 0, 0, 0, v.y, 0, 0, 0, v.z, 0, 0, 0, 0, 0, 0, 0);
+		//}
 
 		public void SetRotateX(float radians)
 		{
-			m0 = 1;
-			m5 = (float)Math.Cos(radians);
-			m6 = (float)Math.Sin(radians);
-			m9 = (float)-Math.Sin(radians);
-			m10 = (float)Math.Cos(radians);
+			float sin = (float)Math.Sin(radians);
+			float cos = (float)Math.Cos(radians);
+			SetIdentity();
+			m5 = cos;
+			m6 = sin;
+			m9 = -sin;
+			m10 = cos;
 		}
 
 		public void SetRotateY(float radians)
 		{
-			m0 = (float)Math.Cos(radians);
-			m2 = (float)-Math.Sin(radians);
-			m5 = 1;
-			m8 = (float)Math.Sin(radians);
-			m10 = (float)Math.Cos(radians);
+			float sin = (float)Math.Sin(radians);
+			float cos = (float)Math.Cos(radians);
+			SetIdentity();
+			m0 = cos;
+			m2 = -sin;
+			m8 = sin;
+			m10 = cos;
 		}
 
 		public void SetRotateZ(float radians)
 		{
-			m0 = (float)Math.Cos(radians);
-			m1 = (float)Math.Sin(radians);
-			m4 = (float)-Math.Sin(radians);
-			m5 = (float)Math.Cos(radians);
+			float sin = (float)Math.Sin(radians);
+			float cos = (float)Math.Cos(radians);
+			SetIdentity();
+			m0 = cos;
+			m1 = sin;
+			m4 = -sin;
+			m5 = cos;
+		}
+
+		public void SetIdentity()
+		{
+			m0 = 1;
+			m5 = 1;
 			m10 = 1;
+			m15 = 1;
 		}
 	}
 }

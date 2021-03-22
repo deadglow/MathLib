@@ -1,11 +1,3 @@
-C:\Users\s210694\Desktop\repos\MathLib\MathLib\bin\Debug\netstandard2.0\MathLib.deps.json
-C:\Users\s210694\Desktop\repos\MathLib\MathLib\bin\Debug\netstandard2.0\MathLib.dll
-C:\Users\s210694\Desktop\repos\MathLib\MathLib\bin\Debug\netstandard2.0\MathLib.pdb
-C:\Users\s210694\Desktop\repos\MathLib\MathLib\obj\Debug\netstandard2.0\MathLib.csprojAssemblyReference.cache
-C:\Users\s210694\Desktop\repos\MathLib\MathLib\obj\Debug\netstandard2.0\MathLib.AssemblyInfoInputs.cache
-C:\Users\s210694\Desktop\repos\MathLib\MathLib\obj\Debug\netstandard2.0\MathLib.AssemblyInfo.cs
-C:\Users\s210694\Desktop\repos\MathLib\MathLib\obj\Debug\netstandard2.0\MathLib.dll
-C:\Users\s210694\Desktop\repos\MathLib\MathLib\obj\Debug\netstandard2.0\MathLib.pdb
 D:\User Files\Dev\repos\MathLib\MathLib\bin\Debug\netstandard2.0\MathLib.deps.json
 D:\User Files\Dev\repos\MathLib\MathLib\bin\Debug\netstandard2.0\MathLib.dll
 D:\User Files\Dev\repos\MathLib\MathLib\bin\Debug\netstandard2.0\MathLib.pdb
@@ -15,3 +7,11 @@ D:\User Files\Dev\repos\MathLib\MathLib\obj\Debug\netstandard2.0\MathLib.Assembl
 D:\User Files\Dev\repos\MathLib\MathLib\obj\Debug\netstandard2.0\MathLib.csproj.CoreCompileInputs.cache
 D:\User Files\Dev\repos\MathLib\MathLib\obj\Debug\netstandard2.0\MathLib.dll
 D:\User Files\Dev\repos\MathLib\MathLib\obj\Debug\netstandard2.0\MathLib.pdb
+C:\Users\s210694\Desktop\repos\MathLib\MathLib\bin\Debug\netstandard2.0\MathLib.deps.json
+C:\Users\s210694\Desktop\repos\MathLib\MathLib\bin\Debug\netstandard2.0\MathLib.dll
+C:\Users\s210694\Desktop\repos\MathLib\MathLib\bin\Debug\netstandard2.0\MathLib.pdb
+C:\Users\s210694\Desktop\repos\MathLib\MathLib\obj\Debug\netstandard2.0\MathLib.csprojAssemblyReference.cache
+C:\Users\s210694\Desktop\repos\MathLib\MathLib\obj\Debug\netstandard2.0\MathLib.AssemblyInfoInputs.cache
+C:\Users\s210694\Desktop\repos\MathLib\MathLib\obj\Debug\netstandard2.0\MathLib.AssemblyInfo.cs
+C:\Users\s210694\Desktop\repos\MathLib\MathLib\obj\Debug\netstandard2.0\MathLib.dll
+C:\Users\s210694\Desktop\repos\MathLib\MathLib\obj\Debug\netstandard2.0\MathLib.pdb
