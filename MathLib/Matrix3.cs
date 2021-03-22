@@ -104,5 +104,75 @@ namespace MathLib
 			m4 = cos;
 			m8 = 1;
 		}
+
+		public Vector2 GetRight()
+		{
+			return new Vector2(m0, m1);
+		}
+
+		public Vector2 GetUp()
+		{
+			return new Vector2(m3, 4);
+		}
+
+		public float GetScaleX()
+		{
+			return GetRight().Magnitude();
+		}
+
+		public float GetScaleY()
+		{
+			return GetUp().Magnitude();
+		}
+
+		public void SetScaleX(float scale)
+		{
+			Vector2 right = GetRight().Normalised() * scale;
+
+			m0 = right.x;
+			m1 = right.y;
+		}
+
+		public void SetScaleY(float scale)
+		{
+			Vector2 up = GetUp().Normalised() * scale;
+
+			m3 = up.x;
+			m4 = up.y;
+		}
+
+		public void SetRotation(float radians)
+		{
+			Vector2 scale = new Vector2(GetScaleX(), GetScaleY());
+
+			//Reset rotation axes to 0
+			m0 = 1;
+			m1 = 0;
+			m3 = 0;
+			m4 = 1;
+
+			//Creates a new rotation matrix
+			Matrix3 rotMat = Identity;
+			rotMat.SetRotateZ(radians);
+
+			//Scale x and y axis by scale x and scale y
+			rotMat.m0 *= scale.x;
+			rotMat.m1 *= scale.x;
+			rotMat.m3 *= scale.y;
+			rotMat.m4 *= scale.y;
+		}
+		
+		public float GetRotation()
+		{
+			Vector2 up = GetUp().Normalised();
+			return (float)Math.Atan2(up.x, up.y);
+		}
+
+		public void SetIdentity()
+		{
+			m0 = 1;
+			m4 = 1;
+			m8 = 1;
+		}
 	}
 }

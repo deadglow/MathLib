@@ -55,7 +55,7 @@ namespace MathLib
 
 		public static Matrix4 operator *(Matrix4 a, Matrix4 b)
 		{
-			//	________Structure_______________
+			//	___________Structure____________
 			//	|	0	|	4	|	8	|	12	|
 			//	|_______|_______|_______|_______|
 			//	|	1	|	5	|	9	|	13	|
