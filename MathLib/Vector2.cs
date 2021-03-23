@@ -4,7 +4,23 @@ namespace MathLib
 {
 	public struct Vector2
 	{
+
 		public float x, y;
+
+		public static Vector2 Zero
+		{
+			get
+			{
+				return new Vector2(0f, 0f);
+			}
+		}
+		public static Vector2 One
+		{
+			get
+			{
+				return new Vector2(1f, 1f);
+			}
+		}
 
 		public Vector2 (float x, float y)
 		{

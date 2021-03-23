@@ -112,7 +112,7 @@ namespace MathLib
 
 		public Vector2 GetUp()
 		{
-			return new Vector2(m3, 4);
+			return new Vector2(m3, m4);
 		}
 
 		public float GetScaleX()
