@@ -10,7 +10,7 @@ namespace MathLib
 
 		public Colour(byte red, byte green, byte blue, byte alpha)
 		{
-			colour = (uint)((red << 24) | (green << 16) | (blue << 8) | alpha);
+			colour = (uint)(((uint)red << 24) | ((uint)green << 16) | ((uint)blue << 8) | alpha);
 		}
 
 		public byte GetRed()
@@ -58,7 +58,7 @@ namespace MathLib
 
 		public byte GetAlpha()
 		{
-			return (byte)colour;
+			return (byte)(colour & 0x000000FF);
 		}
 
 		public void SetAlpha(byte alpha)
