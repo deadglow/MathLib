@@ -72,6 +72,30 @@ namespace MathLib
 								mat.m2 * vec.x + mat.m5 * vec.y + mat.m8 * vec.z);
 		}
 
+		public static Matrix3 operator *(Matrix3 mat, float scalar)
+		{
+			return new Matrix3(mat.m0 * scalar, mat.m1 * scalar, mat.m2 * scalar, mat.m3 * scalar, mat.m4 * scalar, mat.m5 * scalar, mat.m6 * scalar, mat.m7 * scalar, mat.m8 * scalar);
+		}
+
+		public Matrix3 Inverse()
+		{
+			//Gets matrix of minors, negates every second element, moves each element diagonally to the opposite side
+			Matrix3 minors = new Matrix3
+			{
+				m0 = (m4 * m8 - m7 * m5),	m3 = (m1 * m8 - m7 * m2),	m6 = (m1 * m5 - m4 * m2),
+				m1 = (m3 * m8 - m6 * m5),	m4 = (m0 * m8 - m6 * m2),	m7 = (m0 * m5 - m3 * m2), 
+				m2 = (m3 * m7 - m4 * m6),	m5 = (m0 * m7 - m6 * m1),	m8 = (m0 * m4 - m3 * m1)
+			};
+			Matrix3 adjugate = new Matrix3(minors.m0, -minors.m3, minors.m6, -minors.m1, minors.m4, -minors.m7, minors.m2, -minors.m5, minors.m8);
+
+			float determinant = m0 * minors.m0 - m3 * minors.m3 + m6 * minors.m6;
+
+			if (determinant == 0)
+				throw new Exception("Cannot divide adjugate by 0");
+
+			return adjugate * (1 / determinant);
+		}
+
 		public void SetRotateX(float radians)
 		{
 			float sin = (float)Math.Sin(radians);
@@ -165,7 +189,7 @@ namespace MathLib
 		public float GetRotation()
 		{
 			Vector2 up = GetUp().Normalised();
-			return (float)Math.Atan2(up.x, up.y);
+			return (float)Math.Atan2(up.y, up.x);
 		}
 
 		public void SetIdentity()
