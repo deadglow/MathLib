@@ -188,8 +188,8 @@ namespace MathLib
 		
 		public float GetRotation()
 		{
-			Vector2 up = GetUp().Normalised();
-			return (float)Math.Atan2(up.y, up.x);
+			Vector2 right = GetRight().Normalised();
+			return (float)Math.Atan2(right.y, right.x);
 		}
 
 		public void SetIdentity()
