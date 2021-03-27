@@ -15,3 +15,12 @@ C:\Users\s210694\Desktop\repos\MathLib\MathLib\obj\Debug\netstandard2.0\MathLib.
 C:\Users\s210694\Desktop\repos\MathLib\MathLib\obj\Debug\netstandard2.0\MathLib.AssemblyInfo.cs
 C:\Users\s210694\Desktop\repos\MathLib\MathLib\obj\Debug\netstandard2.0\MathLib.dll
 C:\Users\s210694\Desktop\repos\MathLib\MathLib\obj\Debug\netstandard2.0\MathLib.pdb
+C:\Users\999bo\OneDrive\Documents\repos\MathLib\MathLib\bin\Debug\netstandard2.0\MathLib.deps.json
+C:\Users\999bo\OneDrive\Documents\repos\MathLib\MathLib\bin\Debug\netstandard2.0\MathLib.dll
+C:\Users\999bo\OneDrive\Documents\repos\MathLib\MathLib\bin\Debug\netstandard2.0\MathLib.pdb
+C:\Users\999bo\OneDrive\Documents\repos\MathLib\MathLib\obj\Debug\netstandard2.0\MathLib.csprojAssemblyReference.cache
+C:\Users\999bo\OneDrive\Documents\repos\MathLib\MathLib\obj\Debug\netstandard2.0\MathLib.AssemblyInfoInputs.cache
+C:\Users\999bo\OneDrive\Documents\repos\MathLib\MathLib\obj\Debug\netstandard2.0\MathLib.AssemblyInfo.cs
+C:\Users\999bo\OneDrive\Documents\repos\MathLib\MathLib\obj\Debug\netstandard2.0\MathLib.csproj.CoreCompileInputs.cache
+C:\Users\999bo\OneDrive\Documents\repos\MathLib\MathLib\obj\Debug\netstandard2.0\MathLib.dll
+C:\Users\999bo\OneDrive\Documents\repos\MathLib\MathLib\obj\Debug\netstandard2.0\MathLib.pdb
