@@ -98,6 +98,11 @@ namespace MathLib
 			return (float)Math.Sqrt(x * x + y * y);
 		}
 
+		public float SqrMagnitude()
+		{
+			return x * x + y * y;
+		}
+
 		public Vector2 Normalised()
 		{
 			return this / Magnitude();
