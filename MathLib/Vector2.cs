@@ -75,6 +75,11 @@ namespace MathLib
 			return (float)Math.Acos(Dot(a, b) / (a.Magnitude() * b.Magnitude()));
 		}
 
+		public static Vector2 Scale(Vector2 a, Vector2 b)
+		{
+			return new Vector2(a.x * b.x, a.y * b.y);
+		}
+
 		public static float SignedAngle(Vector2 a, Vector2 b)
 		{
 			a = a.Normalised();
