@@ -115,8 +115,6 @@ namespace MathLib
 
 		public Vector2 RightAngle()
 		{
-			Vector3 a = new Vector3();
-			Vector2 b = new Vector2();
 			return RightAngle(this);
 		}
 	}
