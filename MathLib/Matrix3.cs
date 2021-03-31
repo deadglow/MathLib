@@ -72,6 +72,12 @@ namespace MathLib
 								mat.m2 * vec.x + mat.m5 * vec.y + mat.m8 * vec.z);
 		}
 
+		public static Vector2 operator *(Matrix3 mat, Vector2 vec)
+		{
+			return new Vector2(mat.m0 * vec.x + mat.m3 * vec.y,
+								mat.m1 * vec.x + mat.m4 * vec.y);
+		}
+
 		public static Matrix3 operator *(Matrix3 mat, float scalar)
 		{
 			return new Matrix3(mat.m0 * scalar, mat.m1 * scalar, mat.m2 * scalar, mat.m3 * scalar, mat.m4 * scalar, mat.m5 * scalar, mat.m6 * scalar, mat.m7 * scalar, mat.m8 * scalar);
